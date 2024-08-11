@@ -1146,10 +1146,32 @@ margin-bottom: 3rem;
     .home-content p {
         font-size: 16px;
     }
+    #my-pic img{
+        border: none;
+        padding: 0 2.5rem ;
+        /* border-radius: 50%; */
+    }
 
     #my-pic img {
         height: 40vh;
         width: 90vw;
+    }
+    .home-sci a{
+        margin: 0;
+        margin-left: 2px;
+        padding-left: 0;
+        border: none;
+    }
+    .about-img #profile{
+        padding: 0 1rem;
+        border:none;
+        height: 50vh;
+        margin-top: 50px;
+        /* border-radius: 50%; */    
+    }
+    .home-content .btn-box{
+        font-size: 2vh;
+        border: 10px;
     }
 
     .about-text h2 {
