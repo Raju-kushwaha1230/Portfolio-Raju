@@ -12,10 +12,8 @@ body {
 
 .header {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    padding: 20px 10%;
+    padding: 20px 10px;
     background: #051129;
     display: flex;
     justify-content: space-between;
@@ -901,5 +899,281 @@ margin-bottom: 3rem;
     100% {
         transform: translateY(0px);
         opacity: 1;
+    }
+}
+
+/* Existing CSS styles... */
+
+@media (max-width: 1200px) {
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+    }
+
+    .about-text h2 {
+        font-size: 48px;
+    }
+
+    .about-text h4 {
+        font-size: 24px;
+    }
+
+    .contact-text h2 {
+        font-size: 72px;
+    }
+
+    .contact-text h4,
+    .contact-text p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .nav a {
+        font-size: 22px;
+        margin-left: 25px;
+    }
+
+    .home {
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 5% 0;
+    }
+
+    #my-pic {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+    }
+
+    #my-pic img {
+        height: 50vh;
+        width: 80vw;
+    }
+
+    .about {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about .my-pic {
+        position: static;
+        transform: none;
+        margin-bottom: 20px;
+    }
+
+    .about .my-pic img {
+        height: 30vh;
+        width: 60vw;
+    }
+
+    .about-text {
+        width: 90%;
+    }
+
+    .container1 {
+        width: 90%;
+        padding: 50px 20px;
+    }
+
+    #radial-bars .radial-bar {
+        width: 45%;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+        padding-left: 20px;
+    }
+
+    .contact-text h2 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* outline: 1px solid red; */
+    }
+    body{
+        overflow-x: hidden;
+        /* background-color: #bc6c25; */
+        /* width: 100%; */
+        
+    }
+    .home{
+        background: url(wp7453795.webp);
+        background-size: cover;
+        width: 100%;
+        height: 130vh;
+    }
+    .header{
+        width: 100%;
+        
+    }
+    .nav a {
+        font-size: 20px;
+        /* margin-left: 20px; */
+    }
+
+    .home-content h1 {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    .home-content h3 {
+        font-size: 1rem;
+    }
+    .home-content .text{
+        line-height: 7vh;
+    }
+
+    .home-content p {
+        font-size: 0.8rem;
+    }
+    #my-pic{
+        height: 50vh;
+    }
+    #my-pic img{
+        border: none;
+        padding: 0 5rem ;
+        /* border-radius: 50%; */
+    }
+    .home-sci{
+
+    }
+    #Futuristic{
+        display: none;
+
+    }
+    .about-img{
+        height: 60vh;
+        
+    }
+    .about-img #profile{
+        padding: 0 4rem ;
+        border:none;
+
+
+        height: 50vh;
+        margin-top: 50px;
+        /* border-radius: 50%; */
+        
+    }
+    .about-text h2 {
+        font-size: 40px;
+    }
+
+    .about-text h4 {
+        font-size: 20px;
+    }
+
+    .about-text p {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 50px 20px;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+
+    .contact-text h2 {
+        font-size: 50px;
+    }
+
+    .contact-form form input,
+    .contact-form form textarea {
+        width: 100%;
+    }
+
+    .contact-form form #submit {
+        padding: 14px 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    *{
+        outline: 1px solid rebeccapurple;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .header{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        padding-top: 1rem;
+        margin-top: 1rem;
+        background:none;
+        width: 100%;
+        overflow-x:hidden;
+        /* display: none; */
+        
+    }
+    nav{
+        width: 100%;
+        display: none;
+    }
+
+    .nav a {
+        font-size: 18px;
+        /* margin-left: 15px; */
+    }
+
+    .home-content h1 {
+        font-size: 32px;
+    }
+
+    .home-content h3 {
+        font-size: 20px;
+    }
+
+    .home-content p {
+        font-size: 16px;
+    }
+
+    #my-pic img {
+        height: 40vh;
+        width: 90vw;
+    }
+
+    .about-text h2 {
+        font-size: 32px;
+    }
+
+    .about-text h4 {
+        font-size: 18px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .contact-text h2 {
+        font-size: 40px;
+    }
+
+    .contact-text h4,
+    .contact-text p {
+        font-size: 16px;
+    }
+
+    .contact-form form #submit {
+        padding: 12px 30px;
     }
 }
