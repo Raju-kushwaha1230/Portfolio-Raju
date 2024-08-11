@@ -1108,7 +1108,7 @@ margin-bottom: 3rem;
 
 @media (max-width: 576px) {
     *{
-        outline: 1px solid rebeccapurple;
+        /* outline: 1px solid rebeccapurple; */
     }
     .logo {
         font-size: 20px;
