@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Drones- Raju kushwaha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" href="https://placehold.co/32x32/4F46E5/FFFFFF?text=AD">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #4F46E5, #EC4899);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Styles for blog content */
+        .prose {
+            color: #D1D5DB;
+            /* text-gray-300 */
+        }
+
+        .prose h2 {
+            font-size: 1.875rem;
+            /* text-3xl */
+            font-weight: 700;
+            color: #F9FAFB;
+            /* text-gray-50 */
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .prose h3 {
+            font-size: 1.5rem;
+            /* text-2xl */
+            font-weight: 600;
+            color: #F9FAFB;
+            /* text-gray-50 */
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .prose p {
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+        }
+
+        .prose a {
+            color: #818CF8;
+            /* indigo-400 */
+            text-decoration: underline;
+        }
+
+        .prose a:hover {
+            color: #A5B4FC;
+            /* indigo-300 */
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #4F46E5;
+            /* indigo-600 */
+            padding-left: 1rem;
+            margin-left: 0;
+            font-style: italic;
+            color: #9CA3AF;
+            /* text-gray-400 */
+        }
+
+        .prose pre {
+            background-color: #111827;
+            /* gray-900 */
+            border: 1px solid #374151;
+            /* gray-700 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            color: #E5E7EB;
+            /* text-gray-200 */
+        }
+
+        .prose code {
+            background-color: #374151;
+            /* gray-700 */
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+        }
+
+        .prose pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold gradient-text">AD</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="blog_listing.html"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Back
+                        to Writings</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <article class="max-w-4xl mx-auto prose">
+            <!-- Article Header -->
+            <div class="text-center mb-12">
+                <p class="text-sm text-gray-400 mb-2">Published on May 15, 2025</p>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                    Revolutionizing Rescue Operations with AI-Powered Drones <span class="gradient-text">Python + OpenCV</span>
+                </h1>
+                <div class="mt-6 flex items-center justify-center space-x-4">
+                    <img class="w-12 h-12 rounded-full" src="https://placehold.co/100x100/1F2937/4F46E5?text=RK"
+                        alt="Avatar of Raju">
+                    <div>
+                        <p class="font-semibold text-white">Raju kushwaha</p>
+                        <p class="text-sm text-gray-400">Full Stack Developer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Featured Image -->
+            <img src="https://placehold.co/1200x600/1F2937/10B981?text=AI-Powered+Drones" alt=""
+                class="w-full rounded-lg shadow-lg mb-12">
+
+            <!-- Article Content -->
+            <h2>Introduction</h2>
+            <p>In a world where every second counts during a disaster, technology can play a life-saving role. I
+                explored how AI can enhance rescue operations and traffic management by developing a concept for an
+                AI-powered drone. This blog dives into how my solution works, its use cases, and how I plan to scale it.
+            </p>
+
+
+            <h2>1. 🚨 Problem Statement:</h2>
+            <p>During natural disasters or emergencies, rescue operations face delays due to:.</p>
+
+            <blockquote>
+                <li>Traffic congestion.</li>
+
+                <li>Lack of real-time intelligence.</li>
+
+                <li>Limited visibility in affected zones.</li>
+
+
+            </blockquote>
+
+            <!-- <p>Here’s an example of a simple schema for a blog application:</p> -->
+            <!-- <pre><code class="language-graphql">
+type Query {
+  posts: [Post!]!
+  post(id: ID!): Post
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  author: User!
+  comments: [Comment!]
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  author: User!
+}
+            </code></pre> -->
+
+            <h2>2. 🧠 Tech Stack:</h2>
+
+            <li><strong>Python + OpenCV</strong> for object detection and tracking</li>
+
+            <li><strong>YOLOv8 model</strong> for real-time recognition.</li>
+            <li>Dronesim SDK or similar simulator for prototypetesting.</li> 
+
+            <li><strong>Raspberry Pi</strong> (planned) for real-world integration.</li>
+
+            <li><strong>Cloud</strong> (optional) for real-time data transmission</li>
+
+            <h2>Conclusion</h2>
+            <p>AI-powered drones have the potential to transform how we respond to crises. This project made me realize how impactful innovation can be when paired with empathy and real-world problems.</p>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800/50 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 Raju Kushwaha. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

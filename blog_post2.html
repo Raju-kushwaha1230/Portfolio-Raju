@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy-Yard Raju kushwaha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" href="https://placehold.co/32x32/4F46E5/FFFFFF?text=AD">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #4F46E5, #EC4899);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Styles for blog content */
+        .prose {
+            color: #D1D5DB;
+            /* text-gray-300 */
+        }
+
+        .prose h2 {
+            font-size: 1.875rem;
+            /* text-3xl */
+            font-weight: 700;
+            color: #F9FAFB;
+            /* text-gray-50 */
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .prose h3 {
+            font-size: 1.5rem;
+            /* text-2xl */
+            font-weight: 600;
+            color: #F9FAFB;
+            /* text-gray-50 */
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .prose p {
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+        }
+
+        .prose a {
+            color: #818CF8;
+            /* indigo-400 */
+            text-decoration: underline;
+        }
+
+        .prose a:hover {
+            color: #A5B4FC;
+            /* indigo-300 */
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #4F46E5;
+            /* indigo-600 */
+            padding-left: 1rem;
+            margin-left: 0;
+            font-style: italic;
+            color: #9CA3AF;
+            /* text-gray-400 */
+        }
+
+        .prose pre {
+            background-color: #111827;
+            /* gray-900 */
+            border: 1px solid #374151;
+            /* gray-700 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            color: #E5E7EB;
+            /* text-gray-200 */
+        }
+
+        .prose code {
+            background-color: #374151;
+            /* gray-700 */
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+        }
+
+        .prose pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold gradient-text">AD</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="blog_listing.html"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Back
+                        to Writings</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <article class="max-w-4xl mx-auto prose">
+            <!-- Article Header -->
+            <div class="text-center mb-12">
+                <p class="text-sm text-gray-400 mb-2">Published on May 15, 2025</p>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                    Building Yummy Yard: A Complete Food Ordering Web App <span class="gradient-text">Django</span>
+                </h1>
+                <div class="mt-6 flex items-center justify-center space-x-4">
+                    <img class="w-12 h-12 rounded-full" src="https://placehold.co/100x100/1F2937/4F46E5?text=RK"
+                        alt="Avatar of Raju">
+                    <div>
+                        <p class="font-semibold text-white">Raju kushwaha</p>
+                        <p class="text-sm text-gray-400">Full Stack Developer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Featured Image -->
+            <img src="yummy-yard.png" alt=""
+                class="w-full rounded-lg shadow-lg mb-12">
+
+            <!-- Article Content -->
+            <h2>Introduction</h2>
+            <p>Online food delivery is booming, and I wanted to build a simplified version of Swiggy/Zomato to understand how real-world systems work. Here’s how I created Yummy Yard — a food ordering platform with essential user-friendly features.
+            </p>
+            <h2>Tech Stack</h2>
+            <p>Yummy Yard is built using:</p>
+            <ul class="list-disc pl-6">
+                <li><strong>Django</strong> for the backend</li>
+                <li><strong>MySql</strong> as the database</li>
+                <li><strong>HTML/CSS/JavaScript</strong> for the frontend</li>
+                <li><strong>Render</strong> for deployment</li>
+            </ul>
+            <h2>Key Features</h2>
+            <ul class="list-disc pl-6">
+                <li><strong>User Registration/Login:</strong> Secure user accounts with email verification.</li>
+                <li><strong>Restaurant Listings:</strong> Browse restaurants with images, ratings, and menus.</li>
+                <li><strong>Cart Management:</strong> Add/remove items, view total price, and proceed to checkout.</li>
+                <li><strong>Order History:</strong> View past orders with details and status.</li>
+                <li><strong>Payment Integration:</strong> Secure payments via Stripe.</li>
+                <li><strong>Admin Dashboard:</strong> Manage restaurants, orders, and users.</li>
+            </ul>
+            <h2>Challenges Faced</h2>
+            <p>Building Yummy Yard was a great learning experience. Some challenges I faced included:</p>
+            <ul class="list-disc pl-6">
+                <li>Implementing secure user authentication and session management</li>
+                <li>Designing a responsive UI that works well on both desktop and mobile</li>
+                <li>Integrating Stripe for payment processing</li>
+                <li>Ensuring data validation and error handling throughout the app</li>
+                <li>Deploying the app on Heroku and configuring the database</li>
+            </ul>
+            <h2>Conclusion</h2>
+            <p>Yummy Yard is a simplified food ordering platform that demonstrates essential features like user authentication, restaurant listings, cart management, and secure payments. It was a great project to understand how real-world applications work and the challenges involved in building them.</p>
+            
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800/50 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 Raju Kushwaha. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

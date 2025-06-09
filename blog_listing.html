@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writings - Alex Doe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" href="https://placehold.co/32x32/4F46E5/FFFFFF?text=AD">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #4F46E5, #EC4899);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold gradient-text">AD</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                     <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Back to Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16"  >
+        <!-- Blog Header -->
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white">
+                From the <span class="gradient-text">Blog</span>
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                Thoughts on web development, technology, and everything in between.
+            </p>
+        </section>
+
+        <!-- Blog Grid -->
+        <section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" >
+                <!-- Blog Post Card 1 -->
+                <a href="blog_post.html" class="block bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 group">
+                    <img src="https://placehold.co/600x400/1F2937/10B981?text=AI-Powered+Drones" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-gray-400 mb-2">May 15, 2025 • 10 min read</p>
+                        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-indigo-400 transition-colors duration-300">Revolutionizing Rescue Operations with AI-Powered Drones Python + OpenCV</h3>
+                        <p class="text-gray-400 mb-4">In a world where every second counts during a disaster, technology can play a life-saving role. I explored how AI can enhance rescue operations and traffic management by developing a concept for an AI-powered drone. This blog dives into how my solution works, its use cases, and how I plan to scale it.</p>
+                        <span class="font-medium text-indigo-400 flex items-center">Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300"></i></span>
+                    </div>
+                </a>
+                <!-- Blog Post Card 2 -->
+                <a href="blog_post1.html" class="block bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 group">
+                    <img src="https://placehold.co/600x400/1F2937/4F46E5?text=Resume-Builder---CVyra" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-gray-400 mb-2">May 22, 2025 • 5 min read</p>
+                        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-indigo-400 transition-colors duration-300">How I Built a Dynamic Resume Editor Using React and Nodejs</h3>
+                        <p class="text-gray-400 mb-4">A dynamic and modern Resume Builder application built using the MERN stack. This project showcases my skills in React, Node.js, and MongoDB, allowing users to create, edit, and download their resumes in PDF format.</p>
+                        <span class="font-medium text-indigo-400 flex items-center">Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300"></i></span>
+                    </div>
+                </a>
+                <!-- Blog Post Card 3 -->
+                <a href="blog_post2.html" class="block bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 group">
+                     <img src="https://placehold.co/600x400/1F2937/EC4899?text=Micro-frontends" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-gray-400 mb-2">June 01, 2025 • 8 min read</p>
+                        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-indigo-400 transition-colors duration-300">Building Yummy Yard: A Complete Food Ordering Web App Django</h3>
+                        <p class="text-gray-400 mb-4">Online food delivery is booming, and I wanted to build a simplified version of Swiggy/Zomato to understand how real-world systems work. Here’s how I created Yummy Yard — a food ordering platform with essential user-friendly features.</p>
+                        <span class="font-medium text-indigo-400 flex items-center">Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300"></i></span>
+                    </div>
+                </a>
+                <!-- Add more blog post cards here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800/50 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                 <div class="flex justify-center space-x-6 mb-4 sm:mb-0">
+                    <a href="https://github.com/Raju-kushwaha1230" class="text-gray-400 hover:text-white transition-colors duration-300"><i data-lucide="github" class="w-6 h-6"></i></a>
+                    <a href="https://www.linkedin.com/in/raju-kushwaha-b2314124b/" class="text-gray-400 hover:text-white transition-colors duration-300"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                    
+                    
+                </div>
+                <p class="text-center text-gray-400">&copy; 2025 Raju Kushwaha. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
