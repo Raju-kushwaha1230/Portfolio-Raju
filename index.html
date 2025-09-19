@@ -15,9 +15,79 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="https://placehold.co/32x32/4F46E5/FFFFFF?text=RK">
 
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+
+
+
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .animate-slow-move {
+            animation: slow-move 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes slow-move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(30px, -30px);
+            }
+        }
+
+        .animate-gradient-x {
+            background-size: 200% auto;
+            animation: gradient-x 6s linear infinite;
+        }
+
+        @keyframes gradient-x {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
         }
 
         .gradient-text {
@@ -39,14 +109,21 @@
             transition: all 0.4s ease-in-out;
         }
 
-       @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
+        @keyframes float {
 
-    .animate-float {
-        animation: float 4s ease-in-out infinite;
-    }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -61,13 +138,13 @@
                 </div>
                 <div class="hidden md:block">
                     <nav class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about"
+                        <a href="/about.html"
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
                         <a href="#skills"
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
                         <a href="#projects"
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        
+
                         <a href="blog_listing.html"
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Writings</a>
                         <a href="#contact"
@@ -101,101 +178,145 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-        <!-- Hero Section -->
-        <!-- <section id="hero" class="text-center min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
-            <h1 data-aos="fade-down" class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
-                Hi, I'm <span class="gradient-text">Raju Kushwaha</span>
-            </h1>
-            <p data-aos="fade-up" data-aos-delay="200" class="mt-4 text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl">
-                A Full-Stack Developer passionate about building modern, responsive, and scalable web applications.
-            </p>
-            <div data-aos="fade-up" data-aos-delay="400" class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 transform hover:scale-105">View My Work</a>
-                <a href="#contact" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 transform hover:scale-105">Get In Touch</a>
-            </div>
-        </section> -->
-        <section id="hero"
-            class="relative text-center min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
-            <!-- Floating Name + Image -->
-            <div id="hero-header"
-                class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 z-50 flex items-center space-x-4">
-                <!-- Optional Profile Image -->
-                <img id="hero-img"
-                    src="https://avatars.githubusercontent.com/u/101883300?s=400&u=6e57ec468bff9022fcfd330d72f5d5070a2408af&v=4"
-                    alt="Raju" class="w-16 h-16 rounded-full transition-all">
-                <h1 id="hero-name" class="text-4xl md:text-6xl font-bold tracking-tight text-white transition-all">
-                    <span class="gradient-text">Raju Kushwaha</span>
-                </h1>
-            </div>
-
-            <!-- Hero Content (optional) -->
-            <p data-aos="fade-up" data-aos-delay="200"
-                class="mt-36 text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl">
-                A Full-Stack Developer passionate about building modern, responsive, and scalable web applications.
-            </p>
-
-            <div data-aos="fade-up" data-aos-delay="400"
-                class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#projects"
-                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 transform hover:scale-105">View
-                    My Work</a>
-                <a href="#contact"
-                    class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 transform hover:scale-105">Get
-                    In Touch</a>
-            </div>
-        </section>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 sm:pt-20 lg:pt-5">
 
 
-        <!-- About Section -->
-        <section id="about" class="py-20">
-            <div class="flex flex-col md:flex-row items-center gap-10" data-aos="fade-up">
-                <!-- <div class="md:w-1/3 text-center" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://avatars.githubusercontent.com/u/101883300?s=400&u=6e57ec468bff9022fcfd330d72f5d5070a2408af&v=4"
-                        alt="Alex Doe Portrait"
-                        class="rounded-full w-64 h-64 mx-auto border-4 border-indigo-500 shadow-lg">
-                </div> -->
-                <!-- 🌟 Floating Image -->
-                <img id="floating-img" src="https://placehold.co/700x500/1F2937/10B981?text=Raju" 
-                alt="Floating Icon"
-                class="fixed top-1/2 rounded-lg left-1/2 w-20 h-20 z-50 transform -translate-x-1/2 -translate-y-1/2
-                transition-all duration-700 ease-in-out opacity-100 pointer-events-none"
-                />
 
-                <!-- 👤 Main Profile Picture -->
-                <div class="md:w-1/3 text-center" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://avatars.githubusercontent.com/u/101883300?s=400&u=6e57ec468bff9022fcfd330d72f5d5070a2408af&v=4"
-                        alt="Raju Kushwaha Portrait"
-                        class="rounded-full w-64 h-64 mx-auto border-4 border-indigo-500 shadow-lg">
+        <div class="grid md:grid-cols-2 gap-16 items-center py-20 px-6 lg:px-20">
+
+
+            <section id="hero"
+                class="relative flex items-center justify-center text-center md:text-left bg-gradient-to-br from-gray-900 via-black to-gray-800 rounded-3xl p-10 shadow-2xl overflow-hidden">
+
+                <!-- Animated background circles -->
+                <div
+                    class="absolute top-10 left-10 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-slow-move">
                 </div>
-                <div class="md:w-2/3" data-aos="fade-left" data-aos-delay="400">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">About <span
-                            class="gradient-text">Me</span></h2>
-                    <p class="text-lg text-gray-300 mb-4">
-                        Hello! I'm a full-stack developer based in Hyderabad, India, with a deep interest in crafting
-                        elegant solutions to complex problems. My journey into web development started with a
-                        fascination for how things work on the internet, which quickly grew into a passion for building
-                        seamless digital experiences.
-                    </p>
-                    <p class="text-lg text-gray-300 mb-4">
-                        With a strong foundation in both front-end and back-end technologies, I enjoy the entire process
-                        of application development, from brainstorming and design to deployment and maintenance. I'm a
-                        lifelong learner, always excited to explore new technologies and frameworks to improve my craft.
-                    </p>
-                    <div class="flex space-x-4 mt-6 md:mt-8 justify-center md:justify-start">
-                        <a href="https://github.com/Raju-kushwaha1230" target="_blank" rel="noopener"
-                            class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="GitHub">
-                            <i data-lucide="github" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/raju-kushwaha-b2314124b/" target="_blank" rel="noopener"
-                            class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="LinkedIn">
-                            <i data-lucide="linkedin" class="w-6 h-6"></i>
-                        </a>
+                <div
+                    class="absolute bottom-10 right-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-slow-move delay-1000">
+                </div>
 
+                <!-- Main content -->
+                <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center md:items-start">
+
+                    <!-- Profile + Social -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <!-- Profile Image -->
+                        <div class="relative">
+                            <img src="https://avatars.githubusercontent.com/u/101883300?s=400&v=4" alt="Raju"
+                                class="w-28 h-28 md:w-32 md:h-32 rounded-full border-4 border-indigo-500 shadow-lg animate-float transition-transform duration-500 hover:scale-110">
+                            <span
+                                class="absolute top-0 left-0 w-32 h-32 md:w-40 md:h-40 border-4 border-indigo-400 rounded-full animate-ping opacity-30"></span>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="mt-5 flex justify-center md:justify-start gap-4">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/raju-kushwaha-b2314124b/" target="_blank"
+                                class="group flex items-center gap-2 px-5 py-2 bg-blue-600 text-white rounded-xl shadow-md transition transform hover:scale-110 hover:bg-blue-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6"
+                                    viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 
+                           5v14c0 2.761 2.239 5 5 5h14c2.761 
+                           0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
+                           19h-3v-10h3v10zm-1.5-11.268c-.966 
+                           0-1.75-.784-1.75-1.75s.784-1.75 
+                           1.75-1.75 1.75.784 1.75 
+                           1.75-.784 1.75-1.75 1.75zm13.5 
+                           11.268h-3v-5.604c0-1.337-.026-3.061-1.865-3.061-1.868 
+                           0-2.155 1.459-2.155 2.963v5.702h-3v-10h2.881v1.367h.041c.401-.761 
+                           1.379-1.561 2.84-1.561 3.041 0 
+                           3.604 2.003 3.604 4.605v5.589z" />
+                                </svg>
+                                <span class="font-semibold">LinkedIn</span>
+                            </a>
+
+                            <!-- GitHub -->
+                            <a href="https://github.com/Raju-kushwaha1230" target="_blank"
+                                class="group flex items-center gap-2 px-5 py-2 bg-gray-800 text-white rounded-xl shadow-md transition transform hover:scale-110 hover:bg-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 .297c-6.63 0-12 5.373-12 
+                           12 0 5.303 3.438 9.8 8.205 
+                           11.385.6.113.82-.258.82-.577 
+                           0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.089-.745.084-.729.084-.729 
+                           1.205.084 1.84 1.236 1.84 
+                           1.236 1.07 1.835 2.809 1.305 
+                           3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 
+                           0-1.31.465-2.381 1.235-3.221-.135-.303-.54-1.523.105-3.176 
+                           0 0 1.005-.322 3.3 1.23a11.52 
+                           11.52 0 013.003-.404c1.018.005 2.042.138 
+                           3.003.404 2.28-1.552 3.285-1.23 
+                           3.285-1.23.645 1.653.24 2.873.12 
+                           3.176.765.84 1.23 1.911 
+                           1.23 3.221 0 4.61-2.805 
+                           5.625-5.475 5.92.435.375.81 
+                           1.096.81 2.215 0 1.595-.015 
+                           2.875-.015 3.265 0 .315.21.69.825.57C20.565 
+                           22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                </svg>
+                                <span class="font-semibold">GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Name -->
+                    <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight">
+                        <span
+                            class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
+                            Raju Kushwaha
+                        </span>
+                    </h1>
+
+                    <!-- Typing effect -->
+                    <p class="mt-3 text-lg md:text-xl text-gray-300 h-8">
+                        <span class="text-cyan-400 font-mono font-bold" id="typing-text"></span>
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="mt-8 flex flex-col sm:flex-row sm:space-x-6">
+                        <a href="#projects"
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-5 rounded-xl text-lg transition duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/50">
+                            View My Work
+                        </a>
+                        <a href="#contact"
+                            class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-xl text-lg transition duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50 mt-4 sm:mt-0">
+                            📩 Get In Touch
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+
+
+            <!-- About Section -->
+            <section>
+                <div class="text-gray-300 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">👋 About Me</h2>
+                    <p class="text-lg leading-relaxed">
+                        I’m <span class="text-indigo-400 font-semibold">Raju Kushwaha</span>, a passionate
+                        <span class="text-purple-400">Full-Stack Developer</span> who loves crafting modern, scalable,
+                        and user-friendly web applications.
+                    </p>
+                    <p class="mt-4 text-lg leading-relaxed">
+                        Skilled in <span class="text-pink-400">Python, Node.js, Django, Flask, and PostgreSQL</span>,
+                        I enjoy turning complex problems into elegant solutions while keeping UI clean and responsive.
+                    </p>
+                    <p class="mt-4 text-lg leading-relaxed">
+                        Always exploring new technologies in <span class="text-indigo-400">AI, ML</span>,
+                        and <span class="text-purple-400">Next-Gen Web</span>.
+                    </p>
+
+                    <!-- Small CTA -->
+                    <a href="/about.html"
+                        class="inline-block mt-6 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-xl font-semibold transition-transform transform hover:scale-105 hover:shadow-lg">
+                        Learn More About Me →
+                    </a>
+                </div>
+            </section>
+
+        </div>
+
 
         <!-- Skills Section -->
         <section id="skills" class="py-20">
@@ -367,47 +488,150 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <!-- <section id="testimonials" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">What <span class="gradient-text">Others Say</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <i data-lucide="quote" class="w-8 h-8 text-indigo-400 mb-4"></i>
-                    <p class="text-gray-300 mb-6">"Alex is a brilliant developer who brings not only technical expertise but also a creative and collaborative spirit to every project. Their ability to solve complex problems is truly impressive."</p>
-                    <div class="flex items-center">
-                        <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/1F2937/FFFFFF?text=JD" alt="Avatar of Jane Doe">
-                        <div>
-                            <p class="font-semibold text-white">Jane Doe</p>
-                            <p class="text-sm text-gray-400">Project Manager, TechCorp</p>
+
+
+
+
+
+
+        <section class="bg-cyan-950 py-12 mb-10 ">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-white mb-8">My Certificates</h2>
+                <div class="relative overflow-hidden">
+                    <div class="flex gap-6 animate-scroll hover:[animation-play-state:paused]">
+                        <!-- Certificate 1 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-cyan-500/50">
+                            <img src="/img/hckarena.jpg" alt="Certificate 1"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-cyan-400 to-blue-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
+                                Hackathon Certificate
+
+                            </p>
+                        </div>
+
+                        <!-- Certificate 2 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-purple-500/50">
+                            <img src="img/internship certificate.jpg" alt="Certificate 2"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-purple-400 to-pink-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
+                                Internship Certificate
+                            </p>
+                        </div>
+
+                        <!-- Certificate 3 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-indigo-500/50">
+                            <img src="img/anurag univercity certificate_page-0001.jpg" alt="Certificate 3"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-indigo-400 to-cyan-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
+                                University Certificate
+                            </p>
+                        </div>
+
+                        <!-- Certificate 4 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-green-500/50">
+                            <img src="img/certificate.jpg" alt="Certificate 4"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-green-400 to-lime-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-2">
+                                Certificate of Participation
+                            </p>
+                        </div>
+
+                        <!-- Certificate 5 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-pink-500/50">
+                            <img src="img/debugging.png" alt="Certificate 5"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-pink-400 to-red-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-2">
+                                Debugging Contest Certificate
+                            </p>
+                        </div>
+
+                        <!-- Certificate 6 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-yellow-500/50">
+                            <img src="img/extech.jpg" alt="Certificate 6"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-yellow-300 to-orange-400 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
+                                ExTech Event Certificate
+                            </p>
+                        </div>
+
+                        <!-- Certificate 7 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-teal-500/50">
+                            <img src="img/International Student Workshop 2024 on Data Science using Python by Brainovision_page-0001.jpg"
+                                alt="Certificate 7"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-teal-400 to-emerald-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
+                                Data Science Workshop
+                            </p>
+                        </div>
+
+                        <!-- Certificate 8 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-fuchsia-500/50">
+                            <img src="img/nexora.jpg" alt="Certificate 8"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-fuchsia-400 to-purple-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
+                                Nexora Event Certificate
+                            </p>
+                        </div>
+
+                        <!-- Certificate 9 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-rose-500/50">
+                            <img src="img/quizemania.png" alt="Certificate 9"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-rose-400 to-red-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
+                                Quizemania Certificate
+                            </p>
+                        </div>
+
+                        <!-- Certificate 10 -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-sky-500/50">
+                            <img src="img/sphoorthy.jpg" alt="Certificate 10"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-sky-400 to-indigo-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-2">
+                                Sphoorthy College Certificate
+                            </p>
+                        </div>
+
+                        <!-- Duplicate for Infinite Loop -->
+                        <div
+                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-cyan-500/50">
+                            <img src="img/hckarena.jpg" alt="Certificate 1 duplicate"
+                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
+                            <p
+                                class="bg-gradient-to-r from-cyan-400 to-blue-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
+                                Hackathon Certificate
+                            </p>
                         </div>
                     </div>
-                </div>
-                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <i data-lucide="quote" class="w-8 h-8 text-indigo-400 mb-4"></i>
-                    <p class="text-gray-300 mb-6">"Working with Alex was a fantastic experience. They delivered high-quality, clean code ahead of schedule and were always responsive to feedback. Highly recommended."</p>
-                    <div class="flex items-center">
-                        <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/1F2937/FFFFFF?text=JS" alt="Avatar of John Smith">
-                        <div>
-                            <p class="font-semibold text-white">John Smith</p>
-                            <p class="text-sm text-gray-400">CEO, Innovate Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <i data-lucide="quote" class="w-8 h-8 text-indigo-400 mb-4"></i>
-                    <p class="text-gray-300 mb-6">"Alex has a rare talent for understanding both the big picture and the fine details. Their contributions were invaluable to our team's success."</p>
-                    <div class="flex items-center">
-                        <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/1F2937/FFFFFF?text=EM" alt="Avatar of Emily White">
-                        <div>
-                            <p class="font-semibold text-white">Emily White</p>
-                            <p class="text-sm text-gray-400">Lead Engineer, DevSolutions</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-        </section> -->
+        </section>
 
-        <!-- Writings Section -->
+
+
+
+
+
         <section>
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">From the <span
                     class="gradient-text">Blog</span></h2>
@@ -607,17 +831,62 @@
 
         const floatImg = document.getElementById("floating-img");
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-            floatImg.classList.remove("top-1/2", "left-1/2", "-translate-x-1/2", "-translate-y-1/2");
-            floatImg.classList.add("top-0", "left-0", "animate-float");
-            floatImg.classList.add("w-40", "h-40");
-        } else {
-            floatImg.classList.remove("top-0", "left-0", "animate-float");
-            floatImg.classList.add("top-1/2", "left-1/2", "-translate-x-1/2", "-translate-y-1/2");
-            floatImg.classList.remove("w-40", "h-40");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                floatImg.classList.remove("top-1/2", "left-1/2", "-translate-x-1/2", "-translate-y-1/2");
+                floatImg.classList.add("top-0", "left-0", "animate-float");
+                floatImg.classList.add("w-40", "h-40");
+            } else {
+                floatImg.classList.remove("top-0", "left-0", "animate-float");
+                floatImg.classList.add("top-1/2", "left-1/2", "-translate-x-1/2", "-translate-y-1/2");
+                floatImg.classList.remove("w-40", "h-40");
+            }
+        });
+        const roles = [
+            "Full Stack Developer",
+            "Backend Specialist(Python, Node.js)",
+            "AI & ML Explorer"
+        ];
+        let index = 0, charIndex = 0, currentRole = "", deleting = false;
+        const typingEl = document.getElementById("typing-text");
+
+        function typeEffect() {
+            if (deleting) {
+                currentRole = roles[index].substring(0, charIndex--);
+                if (charIndex < 0) {
+                    deleting = false;
+                    index = (index + 1) % roles.length;
+                    setTimeout(typeEffect, 500);
+                    return;
+                }
+            } else {
+                currentRole = roles[index].substring(0, charIndex++);
+                if (charIndex > roles[index].length) {
+                    deleting = true;
+                    setTimeout(typeEffect, 1500);
+                    return;
+                }
+            }
+            typingEl.textContent = currentRole;
+            setTimeout(typeEffect, deleting ? 60 : 100);
         }
-    });
+
+        typeEffect();
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,       // show one at a time
+            spaceBetween: 30,
+            loop: true,
+            centeredSlides: false,
+            autoplay: {
+                delay: 2000,          // 2s per slide
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true // stop on hover
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 }, // 2 on medium screens
+                1024: { slidesPerView: 3 } // 3 on large screens
+            }
+        });
 
     </script>
 </body>

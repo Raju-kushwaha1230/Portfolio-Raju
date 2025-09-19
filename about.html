@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Raju Kushwaha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold gradient-text">RK</a>
+                </div>
+                <div class="hidden md:block">
+                    <nav class="ml-10 flex items-baseline space-x-4">
+                        <a href="/about.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#projects"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+
+                        <a href="blog_listing.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Writings</a>
+                        <a href="#contact"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </nav>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <i data-lucide="menu" class="block h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about"
+                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#skills"
+                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#projects"
+                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#testimonials"
+                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Testimonials</a>
+                <a href="#writings"
+                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Writings</a>
+                <a href="#contact"
+                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+ 
+    <section
+        class="relative min-h-[50vh] flex flex-col justify-center items-center text-center bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
+       
+        <div
+            class="absolute top-10 left-10 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse">
+        </div>
+        <div
+            class="absolute bottom-10 right-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse delay-1000">
+        </div>
+
+        <div class="relative z-10 px-6">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white">👋 About Me</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                I’m <span class="text-indigo-400 font-semibold">Raju Kushwaha</span>, a passionate
+                <span class="text-purple-400">Full-Stack Developer</span> who builds modern, scalable,
+                and user-friendly applications.
+            </p>
+        </div>
+    </section>
+
+ 
+    <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+        <div class="flex justify-center md:justify-start">
+            <img src="https://avatars.githubusercontent.com/u/101883300?s=400&v=4" alt="Raju"
+                class="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-indigo-500 shadow-lg">
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold text-white mb-4">Who Am I?</h2>
+            <p class="text-lg leading-relaxed">
+                I specialize in <span class="text-pink-400">Python, Node.js, Django, Flask, and PostgreSQL</span>.
+                I enjoy solving complex problems and turning them into elegant solutions with responsive, clean UI
+                designs.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed">
+                🚀 Always exploring new technologies in <span class="text-indigo-400">AI</span>,
+                <span class="text-purple-400">Machine Learning</span>,
+                and <span class="text-pink-400">Next-Gen Web</span>.
+            </p>
+        </div>
+    </section>
+
+
+    <section class="bg-gray-800 py-16">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-8">🛠 Skills & Tools</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-lg font-semibold">
+                <div class="p-4 bg-gray-900 rounded-xl shadow-md">Python</div>
+                <div class="p-4 bg-gray-900 rounded-xl shadow-md">Django</div>
+                <div class="p-4 bg-gray-900 rounded-xl shadow-md">Flask</div>
+                <div class="p-4 bg-gray-900 rounded-xl shadow-md">Node.js</div>
+                <div class="p-4 bg-gray-900 rounded-xl shadow-md">PostgreSQL</div>
+                <div class="p-4 bg-gray-900 rounded-xl shadow-md">MySQL</div>
+                <div class="p-4 bg-gray-900 rounded-xl shadow-md">TailwindCSS</div>
+                <div class="p-4 bg-gray-900 rounded-xl shadow-md">Git & GitHub</div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-16 text-center">
+        <h2 class="text-3xl font-bold text-white">📄 Want to Know More?</h2>
+        <p class="mt-4 text-lg text-gray-400">Check out my projects or get in touch with me directly.</p>
+        <div class="mt-6 flex justify-center space-x-6">
+            <a href="#projects"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-semibold transition-transform transform hover:scale-105">
+                🚀 View Projects
+            </a>
+            <a href="#contact"
+                class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-xl font-semibold transition-transform transform hover:scale-105">
+                📩 Contact Me
+            </a>
+        </div>
+    </section>
+
+</body>
+
+</html>
