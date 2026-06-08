@@ -1,906 +1,630 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raju Kushwaha - Full Stack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- AOS Animation Library -->
-    <link rel="stylesheet" href="blog_listing.html">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="icon" href="https://placehold.co/32x32/4F46E5/FFFFFF?text=RK">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raju Kushwaha — Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0e0e0f;
+  --surface:#161617;
+  --surface2:#1e1e20;
+  --border:#2a2a2d;
+  --border2:#333336;
+  --text:#e8e8e6;
+  --muted:#888884;
+  --faint:#555552;
+  --accent:#7b68ee;
+  --accent2:#5b8dee;
+  --green:#4ade80;
+  --font:'DM Sans',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
 
-    <!-- Swiper.js -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+/* layout */
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
 
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(14,14,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:960px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--mono);font-size:15px;color:var(--text);letter-spacing:-0.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{font-size:14px;color:var(--muted);padding:6px 12px;border-radius:6px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:var(--surface2)}
+.nav-resume{font-size:13px;font-weight:500;color:var(--text);background:var(--surface2);border:1px solid var(--border2);padding:6px 14px;border-radius:6px;transition:border-color .2s,background .2s;display:flex;align-items:center;gap:6px;margin-left:8px}
+.nav-resume:hover{border-color:var(--accent);background:var(--surface)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;color:var(--muted);padding:4px}
+.mobile-nav{display:none;position:fixed;top:56px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:99;padding:12px 24px 20px}
+.mobile-nav a{display:block;font-size:15px;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--border)}
+.mobile-nav a:last-child{border-bottom:none;color:var(--accent)}
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+/* hero */
+.hero{padding-top:140px;padding-bottom:80px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-family:var(--mono);color:var(--green);background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);padding:5px 12px;border-radius:100px;margin-bottom:28px}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-name{font-size:clamp(42px,7vw,72px);font-weight:300;line-height:1.05;letter-spacing:-0.03em;color:var(--text);margin-bottom:16px}
+.hero-name em{font-style:normal;color:var(--muted)}
+.hero-sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);max-width:520px;line-height:1.6;margin-bottom:40px}
+.hero-sub strong{color:var(--text);font-weight:400}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.btn-primary{font-size:14px;font-weight:500;color:#fff;background:var(--accent);padding:10px 22px;border-radius:8px;transition:opacity .2s,transform .15s}
+.btn-primary:hover{opacity:.85;transform:translateY(-1px)}
+.btn-ghost{font-size:14px;color:var(--muted);background:var(--surface2);border:1px solid var(--border2);padding:10px 22px;border-radius:8px;transition:color .2s,border-color .2s}
+.btn-ghost:hover{color:var(--text);border-color:var(--border2)}
+.hero-socials{display:flex;gap:20px}
+.hero-social{font-size:13px;color:var(--faint);display:flex;align-items:center;gap:6px;transition:color .2s}
+.hero-social:hover{color:var(--text)}
+.hero-social svg{width:15px;height:15px}
+.hero-img{width:88px;height:88px;border-radius:50%;border:2px solid var(--border2);object-fit:cover;margin-bottom:24px;filter:grayscale(20%)}
 
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
+/* divider */
+.divider{border:none;border-top:1px solid var(--border);margin:0}
 
-        @keyframes float {
+/* section label */
+.sec-label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:36px}
 
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-text p{color:var(--muted);line-height:1.8;margin-bottom:16px;font-size:15px}
+.about-text p strong{color:var(--text);font-weight:400}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tag{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--surface2);border:1px solid var(--border);padding:4px 10px;border-radius:4px}
+.about-stats{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:10px;overflow:hidden}
+.stat-row{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;gap:4px}
+.stat-row:first-child{border-radius:10px 10px 0 0}
+.stat-row:last-child{border-radius:0 0 10px 10px}
+.stat-num{font-size:28px;font-weight:300;letter-spacing:-0.03em;color:var(--text)}
+.stat-label{font-size:12px;color:var(--faint)}
 
-            50% {
-                transform: translateY(-12px);
-            }
-        }
+/* experience */
+.exp-item{padding:28px 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.exp-role{font-size:16px;font-weight:500;color:var(--text);margin-bottom:3px}
+.exp-company{font-size:14px;color:var(--accent);font-family:var(--mono)}
+.exp-date{font-family:var(--mono);font-size:12px;color:var(--faint);white-space:nowrap;padding-top:3px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp-bullets li{font-size:14px;color:var(--muted);padding-left:18px;position:relative;line-height:1.65}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--faint)}
+.exp-bullets li strong{color:var(--text);font-weight:400}
+.exp-techs{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.exp-tech{font-family:var(--mono);font-size:11px;color:var(--faint);border:1px solid var(--border);padding:3px 8px;border-radius:4px}
 
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);border-radius:10px;overflow:hidden}
+.skill-group{background:var(--surface);padding:22px}
+.skill-group h4{font-size:12px;font-family:var(--mono);color:var(--faint);margin-bottom:14px;letter-spacing:.06em}
+.skill-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.skill-list li{font-size:14px;color:var(--muted)}
+.skill-learning{margin-top:28px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px}
+.skill-learning h4{font-size:12px;font-family:var(--mono);color:var(--faint);margin-bottom:12px;letter-spacing:.06em}
+.skill-learning-items{display:flex;flex-wrap:wrap;gap:8px}
+.skill-pill{font-size:12px;color:var(--accent);background:rgba(123,104,238,.1);border:1px solid rgba(123,104,238,.2);padding:4px 12px;border-radius:100px;font-family:var(--mono)}
 
+/* projects */
+.project-featured{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px}
+.project-featured-img{background:var(--surface2);overflow:hidden;min-height:260px}
+.project-featured-img img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .3s}
+.project-featured:hover .project-featured-img img{opacity:1}
+.project-featured-body{background:var(--surface);padding:36px}
+.proj-eyebrow{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.1em;margin-bottom:10px}
+.proj-title{font-size:22px;font-weight:400;color:var(--text);letter-spacing:-0.02em;margin-bottom:10px}
+.proj-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.proj-metrics{display:flex;gap:20px;margin-bottom:20px;flex-wrap:wrap}
+.proj-metric{display:flex;flex-direction:column;gap:2px}
+.proj-metric-num{font-size:20px;font-weight:300;color:var(--text);letter-spacing:-0.02em}
+.proj-metric-label{font-size:11px;color:var(--faint);font-family:var(--mono)}
+.proj-links{display:flex;gap:16px}
+.proj-link{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:5px;transition:color .2s}
+.proj-link:hover{color:var(--text)}
+.proj-link svg{width:13px;height:13px}
 
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden}
+.proj-card{background:var(--surface);padding:0;display:flex;flex-direction:column;transition:background .2s}
+.proj-card:hover{background:var(--surface2)}
+.proj-card-img{height:160px;overflow:hidden;background:var(--surface2)}
+.proj-card-img img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .3s}
+.proj-card:hover .proj-card-img img{opacity:.95}
+.proj-card-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.proj-card-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:6px;letter-spacing:-0.01em}
+.proj-card-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:16px}
+.proj-card-links{display:flex;gap:14px}
+.proj-card-link{font-size:12px;color:var(--faint);display:flex;align-items:center;gap:4px;font-family:var(--mono);transition:color .2s}
+.proj-card-link:hover{color:var(--text)}
+.proj-card-link svg{width:11px;height:11px}
+.proj-coming{font-size:12px;color:var(--faint);font-family:var(--mono);display:flex;align-items:center;gap:4px}
 
+/* certs */
+.certs-scroll-wrap{overflow:hidden;border-radius:10px;border:1px solid var(--border)}
+.certs-scroll{display:flex;gap:0;animation:marquee 45s linear infinite}
+.certs-scroll:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.cert-card{flex-shrink:0;width:210px;border-right:1px solid var(--border);background:var(--surface)}
+.cert-card img{width:100%;height:130px;object-fit:contain;background:var(--surface2);padding:12px}
+.cert-name{font-size:11px;font-family:var(--mono);color:var(--muted);padding:10px 12px;line-height:1.4}
 
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
+/* blog */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden}
+.blog-card{background:var(--surface);padding:24px;display:flex;flex-direction:column;transition:background .2s}
+.blog-card:hover{background:var(--surface2)}
+.blog-date{font-family:var(--mono);font-size:11px;color:var(--faint);margin-bottom:10px}
+.blog-title{font-size:15px;font-weight:400;color:var(--text);line-height:1.45;letter-spacing:-0.01em;flex:1;margin-bottom:16px}
+.blog-read{font-size:12px;color:var(--faint);font-family:var(--mono);display:flex;align-items:center;gap:4px;transition:color .2s}
+.blog-card:hover .blog-read{color:var(--accent)}
+.blog-read svg{width:12px;height:12px}
 
-            100% {
-                transform: translateX(-50%);
-            }
-        }
+/* contact */
+.contact-wrap{max-width:520px;margin:0 auto;text-align:center}
+.contact-heading{font-size:clamp(28px,5vw,44px);font-weight:300;letter-spacing:-0.03em;color:var(--text);margin-bottom:16px}
+.contact-sub{font-size:15px;color:var(--muted);margin-bottom:40px;line-height:1.65}
+.contact-form{text-align:left;display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-label{font-size:12px;font-family:var(--mono);color:var(--faint);letter-spacing:.04em}
+.form-input{background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:var(--font);font-size:14px;padding:11px 14px;border-radius:8px;transition:border-color .2s;outline:none;resize:vertical}
+.form-input:focus{border-color:var(--accent)}
+.form-input::placeholder{color:var(--faint)}
+.form-submit{background:var(--text);color:var(--bg);font-family:var(--font);font-size:14px;font-weight:500;padding:12px;border-radius:8px;border:none;cursor:pointer;transition:opacity .2s}
+.form-submit:hover{opacity:.85}
+.form-success{display:none;font-size:13px;color:var(--green);font-family:var(--mono);text-align:center;padding:10px}
 
-        .animate-scroll {
-            display: flex;
-            width: max-content;
-            animation: scroll 40s linear infinite;
-        }
+/* footer */
+footer{border-top:1px solid var(--border);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:13px;color:var(--faint);font-family:var(--mono)}
+.footer-links{display:flex;gap:20px}
+.footer-link{font-size:13px;color:var(--faint);display:flex;align-items:center;gap:5px;transition:color .2s}
+.footer-link:hover{color:var(--text)}
+.footer-link svg{width:14px;height:14px}
 
-        .animate-slow-move {
-            animation: slow-move 10s ease-in-out infinite alternate;
-        }
-
-        @keyframes slow-move {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(30px, -30px);
-            }
-        }
-
-        .animate-gradient-x {
-            background-size: 200% auto;
-            animation: gradient-x 6s linear infinite;
-        }
-
-        @keyframes gradient-x {
-            0% {
-                background-position: 0% center;
-            }
-
-            100% {
-                background-position: 200% center;
-            }
-        }
-
-        .gradient-text {
-            background: linear-gradient(to right, #4F46E5, #EC4899);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Custom styles for contact form focus */
-        .form-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px #4F46E5;
-        }
-
-        #hero-header,
-        #hero-name,
-        #hero-img {
-            transition: all 0.4s ease-in-out;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-    </style>
+/* responsive */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .about-grid{grid-template-columns:1fr}
+  .project-featured{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-name{font-size:38px}
+}
+@media(max-width:960px){
+  .projects-grid{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
+<body>
 
-<body class="bg-gray-900 text-gray-200">
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span>raju</span>.dev</a>
+    <div class="nav-links">
+      <a href="#about">about</a>
+      <a href="#experience">experience</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#blog">blog</a>
+      <a href="#contact">contact</a>
+      <a href="Raju_Kushwaha_Resume_Final.docx" class="nav-resume">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2h7l3 3v9H3V2z"/><path d="M10 2v4h4M6 9h4M6 12h4"/></svg>
+        resume
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</nav>
 
-    <!-- Header & Navigation -->
-    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <a href="/Portfolio-Raju" class="text-2xl font-bold gradient-text">RK</a>
-                </div>
-                <div class="hidden md:block">
-                    <nav class="ml-10 flex items-baseline space-x-4">
-                        <a href="/Portfolio-Raju/about.html"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#skills"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#projects"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#about" class="mobile-link">about</a>
+  <a href="#experience" class="mobile-link">experience</a>
+  <a href="#skills" class="mobile-link">skills</a>
+  <a href="#projects" class="mobile-link">projects</a>
+  <a href="#blog" class="mobile-link">blog</a>
+  <a href="#contact" class="mobile-link">contact</a>
+  <a href="Raju_Kushwaha_Resume_Final.docx">↓ download resume</a>
+</div>
 
-                        <a href="blog_listing.html"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Writings</a>
-                        <a href="#contact"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-                    </nav>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                        <span class="sr-only">Open main menu</span>
-                        <i data-lucide="menu" class="block h-6 w-6"></i>
-                    </button>
-                </div>
-            </div>
+<main>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <img src="https://avatars.githubusercontent.com/u/101883300?s=400&v=4" alt="Raju Kushwaha" class="hero-img" data-aos="fade-up">
+    <div class="hero-badge" data-aos="fade-up" data-aos-delay="60">
+      <span class="hero-badge-dot"></span>
+      open to internship &amp; junior roles
+    </div>
+    <h1 class="hero-name" data-aos="fade-up" data-aos-delay="100">
+      Raju Kushwaha<br><em>full stack developer</em>
+    </h1>
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="160">
+      I build things end-to-end — from <strong>system design and database architecture</strong> through to code and deployment. Based in Hyderabad, India.
+    </p>
+    <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
+      <a href="#projects" class="btn-primary">see my work</a>
+      <a href="#contact" class="btn-ghost">get in touch</a>
+    </div>
+    <div class="hero-socials" data-aos="fade-up" data-aos-delay="240">
+      <a href="https://github.com/Raju-kushwaha1230" target="_blank" class="hero-social">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3C5.37.3 0 5.67 0 12.3c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 22.1 24 17.6 24 12.3 24 5.67 18.63.3 12 .3z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/raju-kushwaha-b2314124b/" target="_blank" class="hero-social">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.45v6.3zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://x.com/With_mighty0" target="_blank" class="hero-social">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.2L24 22.85h-7.41l-5.8-7.58-6.63 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.47h2.04L6.48 3.24H4.3l13.31 17.38z"/></svg>
+        Twitter
+      </a>
+      <a href="mailto:mightyrajukushwaha@gmail.com" class="hero-social">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/></svg>
+        email
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about" data-aos="fade-up">
+  <div class="wrap">
+    <p class="sec-label">about</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a full stack developer who takes <strong>end-to-end ownership</strong> of what I build. I don't just write code — I think through system design, architect the database, build the API, and push it to production myself.</p>
+        <p>During my internship at <strong>Bluestock Fintech</strong>, I built real-time IPO data systems handling 1,000+ records and an ML pipeline that cut reporting time by 40%. Every project I ship, I ship completely.</p>
+        <p>Currently pursuing B.Tech in CSE at GNIT, Hyderabad. Actively looking for <strong>internship and junior developer roles</strong> where I can grow fast and contribute from day one.</p>
+        <div class="about-tags">
+          <span class="tag">react.js</span><span class="tag">next.js</span><span class="tag">node.js</span>
+          <span class="tag">django</span><span class="tag">postgresql</span><span class="tag">typescript</span>
+          <span class="tag">python</span><span class="tag">mongodb</span><span class="tag">rest apis</span>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about"
-                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="#skills"
-                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
-                <a href="#projects"
-                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="#testimonials"
-                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Testimonials</a>
-                <a href="#writings"
-                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Writings</a>
-                <a href="#contact"
-                    class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-            </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-row">
+          <span class="stat-num">3</span>
+          <span class="stat-label">production apps shipped</span>
         </div>
-    </header>
-
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 sm:pt-20 lg:pt-5">
-
-
-
-        <div class="grid md:grid-cols-2 gap-16 items-center py-20 px-6 lg:px-20">
-
-
-            <section id="hero"
-                class="relative flex items-center justify-center text-center md:text-left bg-gradient-to-br from-gray-900 via-black to-gray-800 rounded-3xl p-10 shadow-2xl overflow-hidden">
-
-                <!-- Animated background circles -->
-                <div
-                    class="absolute top-10 left-10 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-slow-move">
-                </div>
-                <div
-                    class="absolute bottom-10 right-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-slow-move delay-1000">
-                </div>
-
-                <!-- Main content -->
-                <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center md:items-start">
-
-                    <!-- Profile + Social -->
-                    <div class="flex flex-col items-center md:items-start">
-                        <!-- Profile Image -->
-                        <div class="relative">
-                            <img src="https://avatars.githubusercontent.com/u/101883300?s=400&v=4" alt="Raju"
-                                class="w-28 h-28 md:w-32 md:h-32 rounded-full border-4 border-indigo-500 shadow-lg animate-float transition-transform duration-500 hover:scale-110">
-                            <span
-                                class="absolute top-0 left-0 w-32 h-32 md:w-40 md:h-40 border-4 border-indigo-400 rounded-full animate-ping opacity-30"></span>
-                        </div>
-
-                        <!-- Social Media -->
-                        <div class="mt-5 flex justify-center md:justify-start gap-4">
-                            <!-- LinkedIn -->
-                            <a href="https://www.linkedin.com/in/raju-kushwaha-b2314124b/" target="_blank"
-                                class="group flex items-center gap-2 px-5 py-2 bg-blue-600 text-white rounded-xl shadow-md transition transform hover:scale-110 hover:bg-blue-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6"
-                                    viewBox="0 0 24 24">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 
-                           5v14c0 2.761 2.239 5 5 5h14c2.761 
-                           0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
-                           19h-3v-10h3v10zm-1.5-11.268c-.966 
-                           0-1.75-.784-1.75-1.75s.784-1.75 
-                           1.75-1.75 1.75.784 1.75 
-                           1.75-.784 1.75-1.75 1.75zm13.5 
-                           11.268h-3v-5.604c0-1.337-.026-3.061-1.865-3.061-1.868 
-                           0-2.155 1.459-2.155 2.963v5.702h-3v-10h2.881v1.367h.041c.401-.761 
-                           1.379-1.561 2.84-1.561 3.041 0 
-                           3.604 2.003 3.604 4.605v5.589z" />
-                                </svg>
-                                <span class="font-semibold">LinkedIn</span>
-                            </a>
-
-                            <!-- GitHub -->
-                            <a href="https://github.com/Raju-kushwaha1230" target="_blank"
-                                class="group flex items-center gap-2 px-5 py-2 bg-gray-800 text-white rounded-xl shadow-md transition transform hover:scale-110 hover:bg-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6"
-                                    viewBox="0 0 24 24">
-                                    <path d="M12 .297c-6.63 0-12 5.373-12 
-                           12 0 5.303 3.438 9.8 8.205 
-                           11.385.6.113.82-.258.82-.577 
-                           0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.089-.745.084-.729.084-.729 
-                           1.205.084 1.84 1.236 1.84 
-                           1.236 1.07 1.835 2.809 1.305 
-                           3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 
-                           0-1.31.465-2.381 1.235-3.221-.135-.303-.54-1.523.105-3.176 
-                           0 0 1.005-.322 3.3 1.23a11.52 
-                           11.52 0 013.003-.404c1.018.005 2.042.138 
-                           3.003.404 2.28-1.552 3.285-1.23 
-                           3.285-1.23.645 1.653.24 2.873.12 
-                           3.176.765.84 1.23 1.911 
-                           1.23 3.221 0 4.61-2.805 
-                           5.625-5.475 5.92.435.375.81 
-                           1.096.81 2.215 0 1.595-.015 
-                           2.875-.015 3.265 0 .315.21.69.825.57C20.565 
-                           22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                                </svg>
-                                <span class="font-semibold">GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Name -->
-                    <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight">
-                        <span
-                            class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
-                            Raju Kushwaha
-                        </span>
-                    </h1>
-
-                    <!-- Typing effect -->
-                    <p class="mt-3 text-lg md:text-xl text-gray-300 h-8">
-                        <span class="text-cyan-400 font-mono font-bold" id="typing-text"></span>
-                    </p>
-
-                    <!-- CTA Buttons -->
-                    <div class="mt-8 flex flex-col sm:flex-row sm:space-x-6">
-                        <a href="#projects"
-                            class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-5 rounded-xl text-lg transition duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/50">
-                            View My Work
-                        </a>
-                        <a href="#contact"
-                            class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-xl text-lg transition duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50 mt-4 sm:mt-0">
-                            📩 Get In Touch
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-
-
-            <!-- About Section -->
-            <section>
-                <div class="text-gray-300 text-center md:text-left">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">👋 About Me</h2>
-                    <p class="text-lg leading-relaxed">
-                        I’m <span class="text-indigo-400 font-semibold">Raju Kushwaha</span>, a passionate
-                        <span class="text-purple-400">Full-Stack Developer</span> who loves crafting modern, scalable,
-                        and user-friendly web applications.
-                    </p>
-                    <p class="mt-4 text-lg leading-relaxed">
-                        Skilled in <span class="text-pink-400">Python, Node.js, Django, Flask, and PostgreSQL</span>,
-                        I enjoy turning complex problems into elegant solutions while keeping UI clean and responsive.
-                    </p>
-                    <p class="mt-4 text-lg leading-relaxed">
-                        Always exploring new technologies in <span class="text-indigo-400">AI, ML</span>,
-                        and <span class="text-purple-400">Next-Gen Web</span>.
-                    </p>
-
-                    <!-- Small CTA -->
-                    <a href="/Portfolio-Raju/about.html"
-                        class="inline-block mt-6 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-xl font-semibold transition-transform transform hover:scale-105 hover:shadow-lg">
-                        Learn More About Me →
-                    </a>
-                </div>
-            </section>
-
+        <div class="stat-row">
+          <span class="stat-num">1,000+</span>
+          <span class="stat-label">IPO records served at Bluestock</span>
         </div>
-
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Technical <span
-                    class="gradient-text">Skills</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Frontend -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center"><i data-lucide="layout-template"
-                            class="w-6 h-6 mr-2 text-indigo-400"></i>Web Development</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>HTML5 & CSS3</li>
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>JavaScript (ES6+)</li>
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>React & Next.js</li>
-
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>Tailwind CSS</li>
-                    </ul>
-                </div>
-                 <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center"><i data-lucide="layout-template"
-                            class="w-6 h-6 mr-2 text-indigo-400"></i>Mobile Development</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>React Native</li>
-                        
-                    </ul>
-                </div>
-                <!-- Backend -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center"><i data-lucide="server"
-                            class="w-6 h-6 mr-2 text-indigo-400"></i>Backend</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>Node.js & Express</li>
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>Python (Django, Flask)</li>
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>REST API </li>
-
-
-                    </ul>
-                </div>
-                <!-- Databases -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center"><i data-lucide="database"
-                            class="w-6 h-6 mr-2 text-indigo-400"></i>Databases</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>MongoDB</li>
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>PostgreSQL</li>
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>MySQL</li>
-
-                    </ul>
-                </div>
-                <!-- DevOps & Tools -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center"><i data-lucide="wrench"
-                            class="w-6 h-6 mr-2 text-indigo-400"></i>DevOps & Tools</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>Git & GitHub</li>
-                        <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-4 h-4 mr-2 text-green-400"></i>Postman</li>
-
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">My <span
-                    class="gradient-text">Work</span></h2>
-
-            <!-- Featured Project -->
-            <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden mb-12" data-aos="fade-up">
-                <div class="md:flex">
-                    <div class="md:w-1/2">
-                        <img src="https://raw.githubusercontent.com/Raju-kushwaha1230/Resume-Builder---CVyra/refs/heads/main/frontend/public/landing1.png"
-                            alt="Featured Project" class="h-full w-full object-cover">
-                    </div>
-                    <div class="p-8 md:w-1/2 flex flex-col justify-center">
-                        <h4 class="text-sm font-bold text-indigo-400">Featured Project</h4>
-                        <h3 class="text-2xl font-bold text-white mt-1 mb-3">📝 Resume Builder</h3>
-                        <p class="text-gray-400 mb-4">A dynamic and modern Resume Builder application built using the
-                            MERN stack . 📌 This application allows users to create, preview, and download stylish
-                            resumes. Users can also upload profile pictures and generate thumbnails of their resume in
-                            real-time.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">React.js
-                                (Vite)</span>
-                            <span
-                                class="bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Node.js
-                                + Express.js</span>
-                            <span
-                                class="bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">MongoDB
-                                (via Mongoose)</span>
-                            <span
-                                class="bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Cloudinary
-                                for image uploads</span>
-
-                        </div>
-                        <div class="flex items-center space-x-4 mt-auto">
-                            <a href="https://c-vyra.vercel.app/"
-                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center">Live Demo <i
-                                    data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i></a>
-                            <a href="https://github.com/Raju-kushwaha1230/Resume-Builder---CVyra"
-                                class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-6 h-6"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <img src="persona.png" alt="Project 1" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">🚀 PersonaX</h3>
-                        <p class="text-gray-400 mb-4">A Next.js-powered futuristic user profile and social interaction
-                            platform.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="https://persona-x-red.vercel.app/"
-                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center">Live Demo <i
-                                    data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i></a>
-                            <a href="https://github.com/Raju-kushwaha1230/PersonaX-"
-                                class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-6 h-6"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <img src="yummy-yard.png" alt="Project 2" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">College Food Ordering System - Yummy Yard 🍔
-                        </h3>
-                        <p class="text-gray-400 mb-4">Yummy Yard is a food ordering system designed specifically for
-                            college students, providing a convenient way to order meals from campus cafeterias or nearby
-                            food outlets.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="https://yummy-yard-1.onrender.com/"
-                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center">Live Demo <i
-                                    data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i></a>
-                            <a href="https://github.com/Raju-kushwaha1230/Yummy-Yard"
-                                class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-6 h-6"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://raw.githubusercontent.com/Raju-kushwaha1230/LinkTree/refs/heads/main/public/screen1.png"
-                        alt="Project 3" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">🌳 LinkTree Clone</h3>
-                        <p class="text-gray-400 mb-4">A minimalist LinkTree clone built using Next.js and MongoDB. This
-                            app allows users to manage and display multiple links on a single profile page — perfect for
-                            Instagram bios, portfolios, or personal branding.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="#" class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center">Live
-                                Demo [Available Soon] <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i></a>
-                            <a href="https://github.com/Raju-kushwaha1230/LinkTree"
-                                class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-6 h-6"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-
-
-        <section class="bg-cyan-950 py-12 mb-10 ">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-white mb-8">My Certificates</h2>
-                <div class="relative overflow-hidden">
-                    <div class="flex gap-6 animate-scroll hover:[animation-play-state:paused]">
-                        <!-- Certificate 1 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-cyan-500/50">
-                            <img src="/img/hckarena.jpg" alt="Certificate 1"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-cyan-400 to-blue-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
-                                Hackathon Certificate
-
-                            </p>
-                        </div>
-
-                        <!-- Certificate 2 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-purple-500/50">
-                            <img src="img/internship certificate.jpg" alt="Certificate 2"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-purple-400 to-pink-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
-                                Internship Certificate
-                            </p>
-                        </div>
-
-                        <!-- Certificate 3 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-indigo-500/50">
-                            <img src="img/anurag univercity certificate_page-0001.jpg" alt="Certificate 3"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-indigo-400 to-cyan-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
-                                University Certificate
-                            </p>
-                        </div>
-
-                        <!-- Certificate 4 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-green-500/50">
-                            <img src="img/certificate.jpg" alt="Certificate 4"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-green-400 to-lime-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-2">
-                                Certificate of Participation
-                            </p>
-                        </div>
-
-                        <!-- Certificate 5 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-pink-500/50">
-                            <img src="img/debugging.png" alt="Certificate 5"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-pink-400 to-red-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-2">
-                                Debugging Contest Certificate
-                            </p>
-                        </div>
-
-                        <!-- Certificate 6 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-yellow-500/50">
-                            <img src="img/extech.jpg" alt="Certificate 6"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-yellow-300 to-orange-400 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
-                                ExTech Event Certificate
-                            </p>
-                        </div>
-
-                        <!-- Certificate 7 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-teal-500/50">
-                            <img src="img/International Student Workshop 2024 on Data Science using Python by Brainovision_page-0001.jpg"
-                                alt="Certificate 7"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-teal-400 to-emerald-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
-                                Data Science Workshop
-                            </p>
-                        </div>
-
-                        <!-- Certificate 8 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-fuchsia-500/50">
-                            <img src="img/nexora.jpg" alt="Certificate 8"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-fuchsia-400 to-purple-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
-                                Nexora Event Certificate
-                            </p>
-                        </div>
-
-                        <!-- Certificate 9 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-rose-500/50">
-                            <img src="img/quizemania.png" alt="Certificate 9"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-rose-400 to-red-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
-                                Quizemania Certificate
-                            </p>
-                        </div>
-
-                        <!-- Certificate 10 -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-sky-500/50">
-                            <img src="img/sphoorthy.jpg" alt="Certificate 10"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-sky-400 to-indigo-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-2">
-                                Sphoorthy College Certificate
-                            </p>
-                        </div>
-
-                        <!-- Duplicate for Infinite Loop -->
-                        <div
-                            class="flex-shrink-0 w-64 bg-gray-900 shadow-lg rounded-xl flex flex-col items-center transition-transform duration-500 hover:scale-110 hover:shadow-cyan-500/50">
-                            <img src="img/hckarena.jpg" alt="Certificate 1 duplicate"
-                                class="w-full h-56 object-contain rounded-t-xl transition-transform duration-500 hover:scale-105" />
-                            <p
-                                class="bg-gradient-to-r from-cyan-400 to-blue-500 rounded-b-xl w-full text-center text-gray-900 font-bold font-mono text-lg py-6">
-                                Hackathon Certificate
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-
-        <section>
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">From the <span
-                    class="gradient-text">Blog</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post Card 1 -->
-                <a href="blog_post.html"
-                    class="block bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 group">
-                    <img src="https://placehold.co/600x400/1F2937/10B981?text=AI-Powered+Drones" alt="Blog post image"
-                        class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <p class="text-sm text-gray-400 mb-2">May 15, 2025 • 10 min read</p>
-                        <h3
-                            class="text-xl font-semibold text-white mb-3 group-hover:text-indigo-400 transition-colors duration-300">
-                            Revolutionizing Rescue Operations with AI-Powered Drones Python + OpenCV</h3>
-                        <p class="text-gray-400 mb-4">In a world where every second counts during a disaster, technology
-                            can play a life-saving role. I explored how AI can enhance rescue operations and traffic
-                            management by developing a concept for an AI-powered drone. This blog dives into how my
-                            solution works, its use cases, and how I plan to scale it.</p>
-                        <span class="font-medium text-indigo-400 flex items-center">Read More <i
-                                data-lucide="arrow-right"
-                                class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300"></i></span>
-                    </div>
-                </a>
-                <!-- Blog Post Card 2 -->
-                <a href="blog_post1.html"
-                    class="block bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 group">
-                    <img src="https://placehold.co/600x400/1F2937/4F46E5?text=Resume-Builder---CVyra"
-                        alt="Blog post image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <p class="text-sm text-gray-400 mb-2">May 22, 2025 • 5 min read</p>
-                        <h3
-                            class="text-xl font-semibold text-white mb-3 group-hover:text-indigo-400 transition-colors duration-300">
-                            How I Built a Dynamic Resume Editor Using React and Nodejs</h3>
-                        <p class="text-gray-400 mb-4">A dynamic and modern Resume Builder application built using the
-                            MERN stack. This project showcases my skills in React, Node.js, and MongoDB, allowing users
-                            to create, edit, and download their resumes in PDF format.</p>
-                        <span class="font-medium text-indigo-400 flex items-center">Read More <i
-                                data-lucide="arrow-right"
-                                class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300"></i></span>
-                    </div>
-                </a>
-                <!-- Blog Post Card 3 -->
-                <a href="blog_post2.html"
-                    class="block bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 group">
-                    <img src="https://placehold.co/600x400/1F2937/EC4899?text=Yummy-Yard" alt="Blog post image"
-                        class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <p class="text-sm text-gray-400 mb-2">June 01, 2025 • 8 min read</p>
-                        <h3
-                            class="text-xl font-semibold text-white mb-3 group-hover:text-indigo-400 transition-colors duration-300">
-                            Building Yummy Yard: A Complete Food Ordering Web App Django</h3>
-                        <p class="text-gray-400 mb-4">Online food delivery is booming, and I wanted to build a
-                            simplified version of Swiggy/Zomato to understand how real-world systems work. Here’s how I
-                            created Yummy Yard — a food ordering platform with essential user-friendly features.</p>
-                        <span class="font-medium text-indigo-400 flex items-center">Read More <i
-                                data-lucide="arrow-right"
-                                class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300"></i></span>
-                    </div>
-                </a>
-                <!-- Add more blog post cards here -->
-            </div>
-        </section>
-
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="max-w-xl mx-auto text-center" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
-                <p class="text-lg text-gray-300 mb-8">Have a project idea or just want to chat? Fill out the form below
-                    or send me an email. I'd love to hear from you!</p>
-            </div>
-            <form id="contact-form" class="max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                <div id="form-message" class="hidden mb-4 p-4 text-center rounded-lg"></div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <label for="name" class="block text-gray-300 font-medium mb-2">Name</label>
-                        <input type="text" id="name" name="name"
-                            class="form-input w-full bg-gray-800 border-2 border-gray-700 rounded-lg py-3 px-4 text-white transition duration-300"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-gray-300 font-medium mb-2">Email</label>
-                        <input type="email" id="email" name="email"
-                            class="form-input w-full bg-gray-800 border-2 border-gray-700 rounded-lg py-3 px-4 text-white transition duration-300"
-                            required>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <label for="message" class="block text-gray-300 font-medium mb-2">Message</label>
-                    <textarea id="message" name="message" rows="5"
-                        class="form-input w-full bg-gray-800 border-2 border-gray-700 rounded-lg py-3 px-4 text-white transition duration-300"
-                        required></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit"
-                        class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800/50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="flex flex-col sm:flex-row justify-between items-center">
-                <div class="flex justify-center space-x-6 mb-4 sm:mb-0">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i
-                            data-lucide="github" class="w-6 h-6"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i
-                            data-lucide="linkedin" class="w-6 h-6"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i
-                            data-lucide="twitter" class="w-6 h-6"></i></a>
-                </div>
-                <p class="text-center text-gray-400">&copy; 2025 Raju Kushwaha. All rights reserved.</p>
-            </div>
+        <div class="stat-row">
+          <span class="stat-num">40%</span>
+          <span class="stat-label">reporting time cut via ML pipeline</span>
         </div>
-    </footer>
+        <div class="stat-row">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">certificates &amp; achievements</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 700, // values from 0 to 3000, with step 50ms
-            once: true, // whether animation should happen only once - while scrolling down
-        });
+<hr class="divider">
 
-        // Initialize Lucide Icons
-        lucide.createIcons();
+<!-- EXPERIENCE -->
+<section id="experience" data-aos="fade-up">
+  <div class="wrap">
+    <p class="sec-label">experience</p>
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <p class="exp-role">Software Development Engineer Intern</p>
+          <p class="exp-company">Bluestock Fintech</p>
+        </div>
+        <span class="exp-date">Jun 2025 — Aug 2025</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Built an IPO web application using Node.js, REST APIs, and PostgreSQL centralising real-time data for <strong>1,000+ IPO records</strong> — improving query response time by <strong>30%</strong>.</li>
+        <li>Developed an ML-driven financial analysis pipeline in Python that processed <strong>10,000+ data points</strong> and cut manual reporting time by <strong>40%</strong>.</li>
+        <li>Designed and documented RESTful APIs integrated with third-party financial data sources, improving data reliability by <strong>25%</strong>.</li>
+        <li>Independently owned the IPO data pipeline from design to deployment, collaborating with senior engineers in Agile sprints and code reviews.</li>
+      </ul>
+      <div class="exp-techs">
+        <span class="exp-tech">node.js</span><span class="exp-tech">postgresql</span>
+        <span class="exp-tech">python</span><span class="exp-tech">rest apis</span>
+        <span class="exp-tech">machine learning</span><span class="exp-tech">agile</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = mobileMenuButton.querySelector('i');
-            icon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
-            lucide.createIcons();
-        });
+<hr class="divider">
 
-        // Close mobile menu on nav link click
-        document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.querySelector('i').setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-            });
-        });
+<!-- SKILLS -->
+<section id="skills" data-aos="fade-up">
+  <div class="wrap">
+    <p class="sec-label">skills</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>frontend</h4>
+        <ul class="skill-list">
+          <li>React.js</li><li>Next.js</li><li>TypeScript</li>
+          <li>React Native</li><li>Tailwind CSS</li><li>HTML / CSS</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>backend</h4>
+        <ul class="skill-list">
+          <li>Node.js / Express</li><li>Django</li><li>Flask</li>
+          <li>REST APIs</li><li>Python</li><li>JavaScript ES6+</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>databases</h4>
+        <ul class="skill-list">
+          <li>PostgreSQL</li><li>MongoDB</li><li>MySQL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>tools</h4>
+        <ul class="skill-list">
+          <li>Git / GitHub</li><li>Postman</li><li>Agile / Scrum</li>
+        </ul>
+      </div>
+    </div>
+    <div class="skill-learning">
+      <h4>currently learning</h4>
+      <div class="skill-learning-items">
+        <span class="skill-pill">system design</span>
+        <span class="skill-pill">docker</span>
+        <span class="skill-pill">ai / llm integrations</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Contact Form Handling (Frontend Simulation)
-        const contactForm = document.getElementById('contact-form');
-        const formMessage = document.getElementById('form-message');
+<hr class="divider">
 
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+<!-- PROJECTS -->
+<section id="projects" data-aos="fade-up">
+  <div class="wrap">
+    <p class="sec-label">projects</p>
 
-            // Simulate sending message
-            formMessage.textContent = 'Thank you! Your message has been sent.';
-            formMessage.classList.remove('hidden', 'bg-red-500');
-            formMessage.classList.add('bg-green-500', 'text-white');
+    <!-- Featured -->
+    <div class="project-featured" style="margin-bottom:1px">
+      <div class="project-featured-img">
+        <img src="https://raw.githubusercontent.com/Raju-kushwaha1230/Resume-Builder---CVyra/refs/heads/main/frontend/public/landing1.png" alt="CVyra Resume Builder">
+      </div>
+      <div class="project-featured-body">
+        <p class="proj-eyebrow">featured project</p>
+        <h3 class="proj-title">Resume Builder — CVyra</h3>
+        <p class="proj-desc">Full-stack resume editor with live preview and PDF export. Modular form sections for profile, skills, education, and experience with Cloudinary image uploads.</p>
+        <div class="proj-metrics">
+          <div class="proj-metric"><span class="proj-metric-num">50+</span><span class="proj-metric-label">users</span></div>
+          <div class="proj-metric"><span class="proj-metric-num">70%</span><span class="proj-metric-label">faster than manual</span></div>
+        </div>
+        <div class="exp-techs" style="margin-bottom:20px">
+          <span class="exp-tech">react.js</span><span class="exp-tech">node.js</span><span class="exp-tech">mongodb</span><span class="exp-tech">cloudinary</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://c-vyra.vercel.app/" target="_blank" class="proj-link">
+            live demo
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M7 3h6v6"/></svg>
+          </a>
+          <a href="https://github.com/Raju-kushwaha1230/Resume-Builder---CVyra" target="_blank" class="proj-link">
+            source code
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 .3C5.37.3 0 5.67 0 12.3c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 22.1 24 17.6 24 12.3 24 5.67 18.63.3 12 .3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
 
-            contactForm.reset();
+    <!-- Grid -->
+    <div class="projects-grid">
+      <!-- PersonaX -->
+      <div class="proj-card">
+        <div class="proj-card-img">
+          <img src="persona.png" alt="PersonaX">
+        </div>
+        <div class="proj-card-body">
+          <h3 class="proj-card-title">PersonaX</h3>
+          <p class="proj-card-desc">Social profile &amp; interaction platform. Modular REST APIs tested at scale with <strong style="color:var(--text);font-weight:400">500+ profiles</strong> and 99% staging uptime.</p>
+          <div class="proj-card-links">
+            <a href="https://persona-x-red.vercel.app/" target="_blank" class="proj-card-link">live
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M7 3h6v6"/></svg>
+            </a>
+            <a href="https://github.com/Raju-kushwaha1230/PersonaX-" target="_blank" class="proj-card-link">github
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M7 3h6v6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Yummy Yard -->
+      <div class="proj-card">
+        <div class="proj-card-img">
+          <img src="yummy-yard.png" alt="Yummy Yard">
+        </div>
+        <div class="proj-card-body">
+          <h3 class="proj-card-title">Yummy Yard</h3>
+          <p class="proj-card-desc">Food ordering platform supporting <strong style="color:var(--text);font-weight:400">100+ concurrent orders</strong>. 20% lower API latency, 95% order completion rate.</p>
+          <div class="proj-card-links">
+            <a href="https://yummy-yard-1.onrender.com/" target="_blank" class="proj-card-link">live
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M7 3h6v6"/></svg>
+            </a>
+            <a href="https://github.com/Raju-kushwaha1230/Yummy-Yard" target="_blank" class="proj-card-link">github
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M7 3h6v6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- LinkTree -->
+      <div class="proj-card">
+        <div class="proj-card-img">
+          <img src="https://raw.githubusercontent.com/Raju-kushwaha1230/LinkTree/refs/heads/main/public/screen1.png" alt="LinkTree Clone">
+        </div>
+        <div class="proj-card-body">
+          <h3 class="proj-card-title">LinkTree Clone</h3>
+          <p class="proj-card-desc">Minimalist link-in-bio app. Users manage and share multiple links from one profile page — built with Next.js and MongoDB.</p>
+          <div class="proj-card-links">
+            <span class="proj-coming">coming soon</span>
+            <a href="https://github.com/Raju-kushwaha1230/LinkTree" target="_blank" class="proj-card-link">github
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M7 3h6v6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000);
-        });
+<hr class="divider">
 
+<!-- CERTIFICATES -->
+<section data-aos="fade-up">
+  <div class="wrap">
+    <p class="sec-label">certifications</p>
+  </div>
+  <div class="certs-scroll-wrap" style="margin:0 24px;max-width:960px;margin:0 auto 0 auto">
+    <div class="certs-scroll">
+      <!-- real certs -->
+      <div class="cert-card"><img src="/img/hckarena.jpg" alt=""><p class="cert-name">Hackathon — HckArena</p></div>
+      <div class="cert-card"><img src="img/internship certificate.jpg" alt=""><p class="cert-name">SDE Intern — Bluestock Fintech</p></div>
+      <div class="cert-card"><img src="img/anurag univercity certificate_page-0001.jpg" alt=""><p class="cert-name">Ideathon — Anurag University</p></div>
+      <div class="cert-card"><img src="img/certificate.jpg" alt=""><p class="cert-name">Certificate of Participation</p></div>
+      <div class="cert-card"><img src="img/debugging.png" alt=""><p class="cert-name">Debugging Contest</p></div>
+      <div class="cert-card"><img src="img/extech.jpg" alt=""><p class="cert-name">ExTech Event</p></div>
+      <div class="cert-card"><img src="img/International Student Workshop 2024 on Data Science using Python by Brainovision_page-0001.jpg" alt=""><p class="cert-name">Data Science Workshop — Brainovision</p></div>
+      <div class="cert-card"><img src="img/nexora.jpg" alt=""><p class="cert-name">Nexora Event</p></div>
+      <div class="cert-card"><img src="img/quizemania.png" alt=""><p class="cert-name">Quizemania</p></div>
+      <div class="cert-card"><img src="img/sphoorthy.jpg" alt=""><p class="cert-name">Sphoorthy College Event</p></div>
+      <!-- duplicates for seamless loop -->
+      <div class="cert-card"><img src="/img/hckarena.jpg" alt=""><p class="cert-name">Hackathon — HckArena</p></div>
+      <div class="cert-card"><img src="img/internship certificate.jpg" alt=""><p class="cert-name">SDE Intern — Bluestock Fintech</p></div>
+      <div class="cert-card"><img src="img/anurag univercity certificate_page-0001.jpg" alt=""><p class="cert-name">Ideathon — Anurag University</p></div>
+      <div class="cert-card"><img src="img/certificate.jpg" alt=""><p class="cert-name">Certificate of Participation</p></div>
+      <div class="cert-card"><img src="img/debugging.png" alt=""><p class="cert-name">Debugging Contest</p></div>
+      <div class="cert-card"><img src="img/extech.jpg" alt=""><p class="cert-name">ExTech Event</p></div>
+      <div class="cert-card"><img src="img/International Student Workshop 2024 on Data Science using Python by Brainovision_page-0001.jpg" alt=""><p class="cert-name">Data Science Workshop — Brainovision</p></div>
+      <div class="cert-card"><img src="img/nexora.jpg" alt=""><p class="cert-name">Nexora Event</p></div>
+      <div class="cert-card"><img src="img/quizemania.png" alt=""><p class="cert-name">Quizemania</p></div>
+      <div class="cert-card"><img src="img/sphoorthy.jpg" alt=""><p class="cert-name">Sphoorthy College Event</p></div>
+    </div>
+  </div>
+</section>
 
-        const heroHeader = document.getElementById("hero-header");
-        const heroImg = document.getElementById("hero-img");
-        const heroName = document.getElementById("hero-name");
+<hr class="divider" style="margin-top:80px">
 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
-                heroHeader.classList.remove("top-1/2", "left-1/2", "-translate-x-1/2", "-translate-y-1/2");
-                heroHeader.classList.add("top-1", "left-6", "scale-75");
+<!-- BLOG -->
+<section id="blog" data-aos="fade-up">
+  <div class="wrap">
+    <p class="sec-label">writing</p>
+    <div class="blog-grid">
+      <a href="blog_post.html" class="blog-card">
+        <p class="blog-date">May 15, 2025 · 10 min read</p>
+        <h3 class="blog-title">Revolutionizing rescue operations with AI-powered drones using Python + OpenCV</h3>
+        <span class="blog-read">read more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="blog_post1.html" class="blog-card">
+        <p class="blog-date">May 22, 2025 · 5 min read</p>
+        <h3 class="blog-title">How I built a dynamic resume editor using React and Node.js</h3>
+        <span class="blog-read">read more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="blog_post2.html" class="blog-card">
+        <p class="blog-date">June 01, 2025 · 8 min read</p>
+        <h3 class="blog-title">Building Yummy Yard: a complete food ordering app with Django</h3>
+        <span class="blog-read">read more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
 
-                heroImg.classList.add("w-14", "h-14");
-                heroImg.classList.remove("w-16", "h-16");
+<hr class="divider">
 
-                heroName.classList.remove("text-4xl", "md:text-6xl");
-                heroName.classList.add("text-3xl");
-            } else {
-                heroHeader.classList.add("top-1/2", "left-1/2", "-translate-x-1/2", "-translate-y-1/2");
-                heroHeader.classList.remove("top-1", "left-6", "scale-75");
+<!-- CONTACT -->
+<section id="contact" data-aos="fade-up">
+  <div class="wrap">
+    <div class="contact-wrap">
+      <h2 class="contact-heading">let's work together</h2>
+      <p class="contact-sub">Whether you have a role, a project idea, or just want to say hi — my inbox is open.</p>
+      <form class="contact-form" id="contact-form">
+        <div id="form-success" class="form-success">✓ message sent — i'll get back to you soon.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">name</label>
+            <input type="text" class="form-input" placeholder="your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">email</label>
+            <input type="email" class="form-input" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">message</label>
+          <textarea class="form-input" rows="5" placeholder="what's on your mind?" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">send message</button>
+      </form>
+    </div>
+  </div>
+</section>
 
-                heroImg.classList.remove("w-14", "h-14");
-                heroImg.classList.add("w-16", "h-16");
+</main>
 
-                heroName.classList.remove("text-xl");
-                heroName.classList.add("text-4xl", "md:text-6xl");
-            }
-        });
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 raju kushwaha</span>
+      <div class="footer-links">
+        <a href="https://github.com/Raju-kushwaha1230" target="_blank" class="footer-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3C5.37.3 0 5.67 0 12.3c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 22.1 24 17.6 24 12.3 24 5.67 18.63.3 12 .3z"/></svg>
+          github
+        </a>
+        <a href="https://linkedin.com/in/raju-kushwaha-b2314124b/" target="_blank" class="footer-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.45v6.3zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          linkedin
+        </a>
+        <a href="https://x.com/With_mighty0" target="_blank" class="footer-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.2L24 22.85h-7.41l-5.8-7.58-6.63 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.47h2.04L6.48 3.24H4.3l13.31 17.38z"/></svg>
+          twitter
+        </a>
+        <a href="mailto:mightyrajukushwaha@gmail.com" class="footer-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/></svg>
+          email
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-        const floatImg = document.getElementById("floating-img");
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:600,once:true,offset:60});
 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
-                floatImg.classList.remove("top-1/2", "left-1/2", "-translate-x-1/2", "-translate-y-1/2");
-                floatImg.classList.add("top-0", "left-0", "animate-float");
-                floatImg.classList.add("w-40", "h-40");
-            } else {
-                floatImg.classList.remove("top-0", "left-0", "animate-float");
-                floatImg.classList.add("top-1/2", "left-1/2", "-translate-x-1/2", "-translate-y-1/2");
-                floatImg.classList.remove("w-40", "h-40");
-            }
-        });
-        const roles = [
-            "Full Stack Developer",
-            "Backend Specialist(Python, Node.js)",
-            "AI & ML Explorer"
-        ];
-        let index = 0, charIndex = 0, currentRole = "", deleting = false;
-        const typingEl = document.getElementById("typing-text");
+const hamburger=document.getElementById('hamburger');
+const mobileNav=document.getElementById('mobile-nav');
+hamburger.addEventListener('click',()=>{
+  const open=mobileNav.style.display==='block';
+  mobileNav.style.display=open?'none':'block';
+});
+document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{mobileNav.style.display='none'}));
 
-        function typeEffect() {
-            if (deleting) {
-                currentRole = roles[index].substring(0, charIndex--);
-                if (charIndex < 0) {
-                    deleting = false;
-                    index = (index + 1) % roles.length;
-                    setTimeout(typeEffect, 500);
-                    return;
-                }
-            } else {
-                currentRole = roles[index].substring(0, charIndex++);
-                if (charIndex > roles[index].length) {
-                    deleting = true;
-                    setTimeout(typeEffect, 1500);
-                    return;
-                }
-            }
-            typingEl.textContent = currentRole;
-            setTimeout(typeEffect, deleting ? 60 : 100);
-        }
-
-        typeEffect();
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,       // show one at a time
-            spaceBetween: 30,
-            loop: true,
-            centeredSlides: false,
-            autoplay: {
-                delay: 2000,          // 2s per slide
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true // stop on hover
-            },
-            breakpoints: {
-                768: { slidesPerView: 2 }, // 2 on medium screens
-                1024: { slidesPerView: 3 } // 3 on large screens
-            }
-        });
-
-    </script>
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  const s=document.getElementById('form-success');
+  s.style.display='block';
+  this.reset();
+  setTimeout(()=>{s.style.display='none'},5000);
+});
+</script>
 </body>
-
 </html>
